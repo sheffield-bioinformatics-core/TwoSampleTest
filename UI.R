@@ -24,7 +24,8 @@ shinyUI(navbarPage("Explore the two-sample t-test",id="nav",
                    ),
                    tabPanel("Data Input",
                             sidebarLayout(
-                              sidebarPanel(h2("Data Import Parameters"),
+                              sidebarPanel(img(src="logo-sm.png"), br(),a("sbc.shef.ac.uk",href="http://sbc.shef.ac.uk"),
+                                           h2("Data Import Parameters"),
                                            fileInput('file1', 'Choose CSV File',
                                                      accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
                                            helpText("If your file contains column headings, keep this box ticked"),
@@ -64,6 +65,7 @@ shinyUI(navbarPage("Explore the two-sample t-test",id="nav",
                    tabPanel("Data Distribution",
                             sidebarLayout(
                               sidebarPanel(
+                                img(src="logo-sm.png"), br(),a("sbc.shef.ac.uk",href="http://sbc.shef.ac.uk"),
                                 h2("Display Parameters"),
                                 checkboxInput("violin", "Overlay density on boxplot?", value=FALSE),
                                 helpText("You can use the algorithm in R to guess how many bins to use in the histogram"),
@@ -92,6 +94,7 @@ shinyUI(navbarPage("Explore the two-sample t-test",id="nav",
                             
                             sidebarLayout(
                               sidebarPanel(
+                                img(src="logo-sm.png"), br(),a("sbc.shef.ac.uk",href="http://sbc.shef.ac.uk"),
                                 helpText("If you have selected a paired analysis, you will be able to assess the distribution of the differences here"),
                                 h2("Display Parameters"),
                                 checkboxInput("violin.paired", "Overlay density on boxplot?", value=FALSE),
@@ -115,7 +118,9 @@ shinyUI(navbarPage("Explore the two-sample t-test",id="nav",
                             ),
                    tabPanel("Statistical Analysis",
                             sidebarLayout(
-                              sidebarPanel(helpText("Use the histograms and boxplot to judge whether you need to use a parametric, or non-parametric test"),
+                              sidebarPanel(
+                                img(src="logo-sm.png"), br(),a("sbc.shef.ac.uk",href="http://sbc.shef.ac.uk"),
+                                helpText("Use the histograms and boxplot to judge whether you need to use a parametric, or non-parametric test"),
                                                checkboxInput("do.parametric",label = "Use Parametric Test?",value = TRUE),
                                            helpText("If the differences are symmetrical about 0, then a wilcox signed-rank test will be used if a non-parametric test is specifed. Un-tick this box if the differences are not symmetrical. A sign test will be used instead"),
                                            checkboxInput("symmetrical","Symmetrical Differences",TRUE),
@@ -145,7 +150,8 @@ shinyUI(navbarPage("Explore the two-sample t-test",id="nav",
                    tabPanel("Reproducible Analysis",
                             
                             sidebarLayout(
-                              sidebarPanel(    h2("Report Parameters"),
+                              sidebarPanel(    img(src="logo-sm.png"), br(),a("sbc.shef.ac.uk",href="http://sbc.shef.ac.uk"),
+                                               h2("Report Parameters"),
                                                #submitButton ('Generate R Code', icon('toggle-right'))
                                                textInput("outfile", "What to call the output R script",value="analysis"),
                                                textInput("name", "Your Name",value="Anon."),
