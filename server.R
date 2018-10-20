@@ -92,7 +92,7 @@ shinyServer(function(input, output){
       brx <- pretty(range(df1$value), 
                     n = nclass.Sturges(df1$value),min.n = 1)
 
-      p1 <- ggplot(df1, aes(x=value)) + geom_histogram(breaks=brx,colour="black", fill=rgb(29,0,150,maxColorValue=255),alpha=0.5) + ylab("") 
+      p1 <- ggplot(df1, aes(x=value)) + geom_histogram(breaks=brx,colour="black", fill=rgb(0,159,218,maxColorValue=255),alpha=0.5) + ylab("") 
       
       if(input$sameScale) p1 <- p1 + xlim(lims)
       
@@ -100,7 +100,7 @@ shinyServer(function(input, output){
       brx <- pretty(range(df2$value), 
                     n = nclass.Sturges(df2$value),min.n = 1)
       
-      p2 <- ggplot(df2, aes(x=value)) + geom_histogram(breaks=brx,colour="black", fill=rgb(236,0,140,maxColorValue=255),alpha=0.5) + ylab("") 
+      p2 <- ggplot(df2, aes(x=value)) + geom_histogram(breaks=brx,colour="black", fill=rgb(31,20,93,maxColorValue=255),alpha=0.5) + ylab("") 
       
       if(input$sameScale) p2 <- p2 + xlim(lims)
       
@@ -112,7 +112,7 @@ shinyServer(function(input, output){
       binwid <- (max(x)-min(x)) / input$bins
       print(binwid)
       
-      p1 <- ggplot(df1, aes(x=value)) + geom_histogram(binwidth=binwid,colour="black", fill=rgb(29,0,150,maxColorValue=255)) + ylab("")
+      p1 <- ggplot(df1, aes(x=value)) + geom_histogram(binwidth=binwid,colour="black", fill=rgb(0,159,218,maxColorValue=255)) + ylab("")
       
       if(input$sameScale) p1 <- p1 + xlim(lims)
       
@@ -120,7 +120,7 @@ shinyServer(function(input, output){
       binwid <- (max(x)-min(x)) / input$bins
       print(binwid)
       
-      p2 <- ggplot(df2, aes(x=value)) + geom_histogram(binwidth=binwid,colour="black", fill=rgb(236,0,140,maxColorValue=255)) + ylab("")
+      p2 <- ggplot(df2, aes(x=value)) + geom_histogram(binwidth=binwid,colour="black", fill=rgb(31,20,93,maxColorValue=255)) + ylab("")
       
       if(input$sameScale) p2 <- p2 + xlim(lims)
       
@@ -163,13 +163,13 @@ shinyServer(function(input, output){
     if(input$default.bins.paired){
       brx <- pretty(range(df$X), 
                     n = nclass.Sturges(df$X),min.n = 1)
-      p <- ggplot(df, aes(x=X)) + geom_histogram(breaks=brx,colour="black", fill=rgb(29,0,150,maxColorValue=255)) + ylab("") 
+      p <- ggplot(df, aes(x=X)) + geom_histogram(breaks=brx,colour="black", fill=rgb(0,159,218,maxColorValue=255)) + ylab("") 
     }
     
     else {
       binwid <- (max(df$X)-min(df$X)) / input$bins.paired
       print(binwid)
-      p<- ggplot(df, aes(x=X)) + geom_histogram(binwidth=binwid,colour="black", fill=rgb(29,0,150,maxColorValue=255)) + ylab("")
+      p<- ggplot(df, aes(x=X)) + geom_histogram(binwidth=binwid,colour="black", fill=rgb(0,159,218,maxColorValue=255)) + ylab("")
     }
   } else p <- ggplot()
 
@@ -199,9 +199,9 @@ shinyServer(function(input, output){
    #mdf <- melt(df[,c(datacol1,datacol2)])
     
     if(input$violin){
-      p <- ggplot(df, aes(x = variable,y=value,fill=variable)) + geom_violin(alpha=0.5) + geom_boxplot(fill="white",width=0.1) + geom_jitter(position = position_jitter(width = .05)) + coord_flip() + scale_fill_manual(values=c(rgb(29,0,150,maxColorValue=255), rgb(236,0,140,maxColorValue=255)))
+      p <- ggplot(df, aes(x = variable,y=value,fill=variable)) + geom_violin(alpha=0.5) + geom_boxplot(fill="white",width=0.1) + geom_jitter(position = position_jitter(width = .05)) + coord_flip() + scale_fill_manual(values=c(rgb(0,159,218,maxColorValue=255), rgb(31,20,93,maxColorValue=255)))
     } else{
-      p <- ggplot(df, aes(x = variable,y=value,fill=variable)) + geom_boxplot(alpha=0.5) + geom_jitter(position = position_jitter(width = .05)) + coord_flip() + scale_fill_manual(values=c(rgb(29,0,150,maxColorValue=255), rgb(236,0,140,maxColorValue=255)))
+      p <- ggplot(df, aes(x = variable,y=value,fill=variable)) + geom_boxplot(alpha=0.5) + geom_jitter(position = position_jitter(width = .05)) + coord_flip() + scale_fill_manual(values=c(rgb(0,159,218,maxColorValue=255), rgb(31,20,93,maxColorValue=255)))
     }
 
 #    if(input$showCI) p <- p + stat_summary(fun.data="mean_cl_normal",colour="red",fun.args = list(mult=1.96),geom="errorbarh")
@@ -233,9 +233,9 @@ shinyServer(function(input, output){
     #mdf <- melt(df[,c(datacol1,datacol2)])
     
       if(input$violin.paired){
-        p <- ggplot(df, aes(x = variable,y=value)) + geom_violin(fill=rgb(236,0,140,maxColorValue=255)) + geom_boxplot(fill="white",width=0.1) + geom_jitter(position = position_jitter(width = .05)) + coord_flip()
+        p <- ggplot(df, aes(x = variable,y=value)) + geom_violin(fill=rgb(31,20,93,maxColorValue=255)) + geom_boxplot(fill="white",width=0.1) + geom_jitter(position = position_jitter(width = .05)) + coord_flip()
       } else{
-        p <- ggplot(df, aes(x = variable,y=value)) + geom_boxplot(fill=rgb(236,0,140,maxColorValue=255)) + geom_jitter(position = position_jitter(width = .05)) + coord_flip() 
+        p <- ggplot(df, aes(x = variable,y=value)) + geom_boxplot(fill=rgb(31,20,93,maxColorValue=255)) + geom_jitter(position = position_jitter(width = .05)) + coord_flip() 
         }
       
     } else p <- ggplot()
@@ -420,9 +420,9 @@ shinyServer(function(input, output){
       rect2 <- data.frame(xmin = critvals[2],xmax = max(critvals[2],xlim), ymin=-Inf,ymax=Inf)
       
      p <- switch(alternative,
-      "two.sided" = p + geom_rect(data=rect1,aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),fill="yellow", alpha=0.5, inherit.aes = FALSE) + geom_rect(data=rect2,aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),fill="yellow", alpha=0.5, inherit.aes = FALSE),
-      "greater" = p + geom_rect(data=rect2,aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),fill="yellow", alpha=0.5, inherit.aes = FALSE),
-      "less" =  p + geom_rect(data=rect1,aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),fill="yellow", alpha=0.5, inherit.aes = FALSE)
+      "two.sided" = p + geom_rect(data=rect1,aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),fill=rgb(249,227,0,maxColorValue=255), alpha=0.5, inherit.aes = FALSE) + geom_rect(data=rect2,aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),fill=rgb(249,227,0,maxColorValue=255), alpha=0.5, inherit.aes = FALSE),
+      "greater" = p + geom_rect(data=rect2,aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),fill=rgb(249,227,0,maxColorValue=255), alpha=0.5, inherit.aes = FALSE),
+      "less" =  p + geom_rect(data=rect1,aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),fill=rgb(249,227,0,maxColorValue=255), alpha=0.5, inherit.aes = FALSE)
      )   
       p <- p + geom_vline(xintercept = tstat,lty=2,col="red") + xlim(xlim) + ggtitle(paste("T-distribution with ", round(degfree,2), "degrees of freedom"))
       print(p)
