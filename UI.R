@@ -7,9 +7,9 @@ shinyUI(navbarPage("Explore the two-sample t-test",id="nav",
                    
                    tabPanel("About",
                             sidebarLayout(
-                              sidebarPanel(img(src="cruk-cambridge-institute.jpg",width=350,height=77), br(),a("cruk.cam.ac.uk",href="www.cruk.cam.ac.uk")),
+                              sidebarPanel(img(src="logo-sm.png"), br(),a("sbc.shef.ac.uk",href="http://sbc.shef.ac.uk")),
                               mainPanel(helpText("This app was developed by the Bioinformatics Core of Cancer Research Uk Cambridge Institute to accompany a training course. On the course webpage you will find lecture notes from the course and practical exercises that use this app"),
-                                        a("Introduction to Statistical Analysis",href="http://bioinformatics-core-shared-training.github.io/IntroductionToStats/"),
+                                        a("Introduction to Statistical Analysis",href="http://sheffield-bioinformatics-core.github.io/IntroductionToStats/"),
                                         br(),
                                         helpText(),
                                         br(),
@@ -17,7 +17,7 @@ shinyUI(navbarPage("Explore the two-sample t-test",id="nav",
                                         
                                         br(),
                                         br(),
-                                        a("View source Code for app", href="https://github.com/bioinformatics-core-shared-training/TwoSampleTest.git")
+                                        a("View source Code for app", href="https://github.com/sheffield-bioinformatics-core/TwoSampleTest.git")
                               )
                             )
                             
